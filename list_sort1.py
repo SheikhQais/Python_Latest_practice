@@ -12,3 +12,18 @@ for i in range(len(unique)):
 unique.sort()
 print("New sorted list with square of items is:")
 print(unique)
+
+
+# Solution suggested by GPT is:
+# li = [2, 3, 2, 4, 3]
+
+# Step 1: Remove duplicates using set
+# unique = list(set(li))
+
+# Step 2: Square each number using list comprehension
+# squared = [x**2 for x in unique]
+
+# Step 3: Sort the result
+# squared.sort()
+
+# print(squared)
