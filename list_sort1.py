@@ -1,3 +1,11 @@
+# Problem Statement:
+# Unique Squares
+# Write a program that takes a list of numbers, removes duplicates, and returns a new sorted list of their squares using list comprehension.
+# Example input:
+# [2, 3, 2, 4, 3]
+# Expected output:
+# [4, 9, 16]
+
 list_ = [4,5, 6, 5,6,3,7,8 ,9]
 unique = [] # declaring new list for sorting
 i =0 # initializing variable for control of loop flow

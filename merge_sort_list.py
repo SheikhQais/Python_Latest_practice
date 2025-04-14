@@ -1,3 +1,12 @@
+# Problem Statement:
+# Merge and Sort Two Lists
+# Take two lists of strings, merge them, remove duplicates, and return a single alphabetically sorted list.
+# Example:
+# list1 = ['apple', 'banana', 'mango']
+# list2 = ['banana', 'orange', 'grape']
+# Expected output:
+# ['apple', 'banana', 'grape', 'mango', 'orange']
+
 list1 = ['apple', 'banana', 'mango']
 list2 = ['banana', 'orange', 'grape']
 
