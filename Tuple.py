@@ -62,3 +62,64 @@ print("Before: ",Tupple3)
 Tupple4 = (8,9,8,7,7)
 Tupple3 = Tupple3 + Tupple4
 print("After: ",Tupple3)
+
+# Tuples are unchangeable, so you cannot remove items from it,
+# but you can use the same workaround as we used for changing and adding tuple items:
+thistuple = ("apple", "banana", "cherry")
+print('Before: ', thistuple)
+y = list(thistuple)
+y.remove("apple")
+thistuple = tuple(y)
+print('After: ', thistuple)
+
+# Or you can delete the tuple completely:
+# del thistuple
+# print(thistuple) #this will raise an error because the tuple no longer exists
+
+
+# Packing a tuple
+# When we create a tuple, we normally assign values to it. This is called "packing" a tuple:
+fruits = ("apple", "banana", "cherry")
+
+# But, in Python, we are also allowed to extract the values back into variables. This is called "unpacking":
+
+(green, yellow, red) = fruits
+print(green)
+print(yellow)
+print(red)
+
+# If the number of variables is less than the number of values, 
+# you can add an * to the variable name and the values will be assigned to the variable as a list:
+
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+(green, yellow, *red) = fruits
+print("Unpacking using * 'Asterisk'")
+print(green)
+print(yellow)
+print(red, type(red)) 
+
+print("If we use the Asterisk in the middle or starting item.")
+fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
+
+(*green, tropic, red) = fruits
+
+print(green)
+print(tropic)
+print(red)
+
+#Looping in the Tuple
+print('Loops in the Tuple')
+# For Loop
+print('For Loop: ')
+thistuple = ("apple", "banana", "cherry")
+for i in range(len(thistuple)):
+  print(thistuple[i])
+  
+# While Loop
+print('While Loop: ')
+thistuple = ("apple", "banana", "cherry")
+i = 0
+while i < len(thistuple):
+  print(thistuple[i])
+  i = i + 1
