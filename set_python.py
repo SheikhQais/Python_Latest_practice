@@ -44,3 +44,31 @@ this_list = [1,2,3,4,'get', 'on', 'the', 'dance', 'floor']
 print(this_list)
 thisset.update(this_list) #Check this
 print(thisset)
+
+#To remove item from set, you can use remove() or discard() method
+
+thisset.remove('banana')
+print(thisset)
+
+# But if item is not available in the set, remove() method will throw thw error
+# thisset.remove('stawberry')
+
+#You can also use discard() method to remove the item from the set
+thisset.discard('apple')
+print(thisset)
+
+#But if item is not available in the set, discard() method will not throw the error
+thisset.discard('pent')
+print(thisset)
+
+#You can also remove the item with pop() method, but this method will remove the random item.
+thisset.pop()
+print(thisset) #sets are unordered, so do not know which item is going to be removed 
+
+# clear() will empty the set
+thisset.clear()
+print(thisset)
+
+#del keyword will delete the complete existance of the set
+del thisset
+print(thisset)
