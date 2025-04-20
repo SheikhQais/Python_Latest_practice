@@ -83,3 +83,17 @@ thisdict = {
 thisdict.update({"color": "red"})
 
 print(thisdict)
+
+# Removing Items
+# There are several methods to remove items from a dictionary:
+
+thisdic = {"Make":"Ford",
+           "Model": "Raptor",
+           "Varient": "F150"
+           }
+
+thisdic.pop("Make")
+print(thisdic)
+
+thisdic.update({"Make":"Ford"})
+print(thisdic)
