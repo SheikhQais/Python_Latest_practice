@@ -89,11 +89,19 @@ print(thisdict)
 
 thisdic = {"Make":"Ford",
            "Model": "Raptor",
-           "Varient": "F150"
+           "Varient": "F150",
+           "year":2021
            }
 
 thisdic.pop("Make")
 print(thisdic)
 
 thisdic.update({"Make":"Ford"})
+print(thisdic)
+
+thisdic.popitem()
+print(thisdic)
+del thisdic["year"]
+print(thisdic)
+thisdic.clear()
 print(thisdic)
