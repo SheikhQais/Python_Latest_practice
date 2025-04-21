@@ -92,7 +92,7 @@ thisdic = {"Make":"Ford",
            "Varient": "F150",
            "year":2021
            }
-
+print(thisdic)
 thisdic.pop("Make")
 print(thisdic)
 
@@ -101,7 +101,92 @@ print(thisdic)
 
 thisdic.popitem()
 print(thisdic)
-del thisdic["year"]
-print(thisdic)
-thisdic.clear()
-print(thisdic)
+# del thisdic["year"]
+# print(thisdic)
+# thisdic.clear()
+# print(thisdic)
+
+# Looping through the dictionary
+for x in thisdic:
+  print(x)
+print("------------------")
+print("Using index, it will give values in dictionary")
+for x in thisdic:
+  print(thisdic[x])
+print("------------------")
+print("Using values() method")
+for x in thisdic.values():
+  print(x)
+print("------------------")
+print("Using keys() method")
+for x in thisdic.keys():
+  print(x)
+print("------------------")
+print("Using items() method")
+for x, y in thisdic.items():
+  print(x,y)
+  
+# You cannot copy a dictionary simply by typing dict2 = dict1, because: dict2 will only be a reference to dict1,
+# and changes made in dict1 will automatically also be made in dict2.
+# There are ways to make a copy, one way is to use the built-in Dictionary method copy().
+
+mydict = thisdic.copy()
+print("mydict=",mydict)
+
+# Another way to make a copy is to use the built-in function dict().
+
+mydict = dict(thisdict)
+print("mydict=",mydict)
+
+# Nested Dictionaries
+
+# A Dictionary can contain dictionaries, called nested dictionaries
+Family = {
+  "child1": {
+    "name":"Qais",
+    "age":24
+  },
+  "child2": {
+    'name': "Abuzar",
+    "age": 15
+  },
+  "child3": {
+    'name': "Esha",
+    "age": 22
+  }
+}
+
+print("Family =",Family)
+
+print(Family["child2"]["name"])
+
+# Create three dictionaries, then create one dictionary that will contain the other three dictionaries:
+
+Child1 = {
+  'name':'Habib',
+  'age': 24
+}
+
+Child2 = {
+  'name': 'Junaid',
+  'age': 23
+}
+
+Child3 = {
+  "name": "Abid",
+  'age': 25
+}
+
+Colleages = {
+  'Col1': Child1,
+  'Col2': Child2,
+  'Col3': Child3
+}
+
+print("Colleages =",Colleages)
+
+# Looping through Nested Dictionary
+for i, obj in Family.items():
+  print(i)
+  for y in obj:
+    print(y,":",obj[y])
