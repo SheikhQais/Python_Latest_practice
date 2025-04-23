@@ -11,4 +11,3 @@ for x, obj in contacts.items():
     print('phone',obj['phone'])
     print('email',obj["email"])
     
-    
