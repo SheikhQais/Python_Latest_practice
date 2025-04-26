@@ -22,3 +22,10 @@ while i < 6:
   if i == 3:
     continue
   print(i)
+  
+def my_function(fname):
+  print(fname + " Refsnes")
+
+my_function("Emil")
+my_function("Tobias")
+my_function("Linus")
