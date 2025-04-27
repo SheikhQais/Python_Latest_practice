@@ -41,3 +41,18 @@ def sum_marks(marks):
 marks = [85, 90, 78, 92]
 print(sum_marks(marks))
 
+print('\n')
+
+# Factorial using Recursion function
+def factorial(x):
+    if x == 0:
+        return 1
+    elif x > 0:
+        x = x * factorial(x-1)
+    return x
+
+print(factorial(7))
+fac = int(input('Give me the range of numbers to find factorial: '))
+print('\n')
+for x in range(fac+1):
+    print(f'Here is the Factorial of {x}: {factorial(x)}')
