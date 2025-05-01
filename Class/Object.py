@@ -57,5 +57,7 @@ print(p1)
 # class definitions cannot be empty, but if you for some reason have -
 # a class definition with no content, put in the pass statement to avoid getting an error.
 # Example
-class Car:
-  pass
+class mycar:
+    def __init__(self,make,model,varient):
+        pass
+    
