@@ -51,13 +51,9 @@ del p1.age
 # You can delete objects by using the del keyword:
 
 del p1
-print(p1)
+# print(p1)
 
 # The pass Statement
 # class definitions cannot be empty, but if you for some reason have -
 # a class definition with no content, put in the pass statement to avoid getting an error.
 # Example
-class mycar:
-    def __init__(self,make,model,varient):
-        pass
-    
