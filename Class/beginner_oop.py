@@ -49,3 +49,23 @@ print(student1)
 
 del car1 #Deleting Object
 del student1 #Deleting Object
+
+class book:
+    def __init__(self, title, author,rating):
+        self.title = title
+        self.author = author
+        
+    def __str__(self):
+        pass
+    
+    def book_info(abc):
+        print(f'{abc.title} {abc.author}')
+    
+    def set_rating(abc, x):
+        abc.rating = x
+        return abc.rating
+        
+userr = book('bad to good days','Ans',5)
+print(userr.rating) #This will raise error as rating is not initiated in __init__()
+userr.set_rating(4.4) #So, We are assigning this attribute to the object of class in a method
+print(userr.rating)
