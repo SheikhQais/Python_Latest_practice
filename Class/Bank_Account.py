@@ -1,34 +1,60 @@
 class Account:
     def __init__(self, holder_name, balance):
-        self.Holder_Name = holder_name
-        self.Balance = balance
-        
-    def __str__(self):
-        return f'Account Holder\'s Name: {self.Holder_Name} \nAvailable Balance: {self.Balance}'
-        
-    def Deposit(self, Deposit_Amount):
-        self.Balance += Deposit_Amount
-        print(f'New Balance: {self.Balance}')
-        
-    def Withdraw(self, Withdraw_Amount):
-        if Withdraw_Amount <= self.Balance:
-            self.Balance -= Withdraw_Amount
-            print(f'New Balance: {self.Balance}')
+        self.holder_name = holder_name
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f'Deposited {amount}. New balance: {self.balance}')
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f'Withdrew {amount}. New balance: {self.balance}')
         else:
-            print('Insufficient balance')
+            print('Insufficient balance.')
 
-class Interest(Account):
-    def __init__(self, holder_name, balance, interest):
+    def __str__(self):
+        return f'Account Holder: {self.holder_name}, Balance: {self.balance}'
+
+
+class SavingsAccount(Account):
+    def __init__(self, holder_name, balance, interest_rate):
         super().__init__(holder_name, balance)
-        self._interest = interest
-        
-    def Interest(self):
-        profit = self.Balance * (self._interest * 0.01)
-        print(f'Every year you will get {profit} on your saving account')
+        self.interest_rate = interest_rate  # as a percentage
 
-# Test
-Acc = Interest('Qais', 50000, 6)
-print(Acc)  # Now this will show account info
-Acc.Deposit(60000000)
-Acc.Withdraw(90000000)
-Acc.Interest()
+    def apply_interest(self):
+        interest = self.balance * (self.interest_rate / 100)
+        self.balance += interest
+        print(f'Interest applied: {interest}. New balance: {self.balance}')
+
+
+class CheckingAccount(Account):
+    def __init__(self, holder_name, balance, overdraft_limit):
+        super().__init__(holder_name, balance)
+        self.overdraft_limit = overdraft_limit
+
+    def withdraw(self, amount):
+        if amount <= self.balance + self.overdraft_limit:
+            self.balance -= amount
+            print(f'Withdrew {amount}. New balance: {self.balance}')
+        else:
+            print('Overdraft limit exceeded.')
+
+
+# --- Example Usage ---
+
+# Savings Account
+savings = SavingsAccount('Ali', 10000, 5)
+print(savings)
+savings.apply_interest()
+savings.withdraw(2000)
+savings.deposit(1500)
+print()
+
+# Checking Account
+checking = CheckingAccount('Waleed', 5000, 2000)
+print(checking)
+checking.withdraw(6000)   # Should succeed (overdraft allowed)
+checking.withdraw(2000)   # Should fail (overdraft limit exceeded)
+checking.deposit(1000)
