@@ -1,0 +1,6 @@
+Name: John Doe
+Age: 28
+City: San Francisco
+Hobbies: Reading, Hiking, Coding
+Favorite Language: Python
+Occupation: Software Developer
