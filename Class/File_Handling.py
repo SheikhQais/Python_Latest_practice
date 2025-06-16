@@ -1,3 +1,9 @@
+import math
+
+x = math.sqrt(64)
+
+print(x)
+
 # f = open('D:/Python_Latest_practice/Class/myfile.txt', 'a')
 # content  = f.read()
 # print(content)
