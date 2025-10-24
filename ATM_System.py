@@ -29,28 +29,51 @@ class ATM_System:
         print("Invalid PIN. Please try again.")
         return None
 
-    def fast_cash_withdraw(self, user, amount):
-        if amount not in self.fast_cash_options:
-            return ("Invalid Fast Cash option.", self.fast_cash_withdraw(user, amount))
-        if user['account_balance'] < amount:
-            return "Insufficient funds."
-        user['account_balance'] -= amount
-        return f"You have successfully withdrawn ${amount} using Fast Cash option."
+    def fast_cash_withdraw(self, user):
+        while True:
+            try:
+                amount = int(input("Choose a Fast Cash option: 20, 50, 100, 200, 500 or 0 to Exit\n> "))
+                if amount == 0:
+                    return "Transaction cancelled."
+                if amount not in self.fast_cash_options:
+                    print("❌ Invalid Fast Cash option. Try again.")
+                    continue
+                if user['account_balance'] < amount:
+                    return "Insufficient funds."
+                user['account_balance'] -= amount
+                return f"✅ You have successfully withdrawn ${amount} using Fast Cash option."
+            except ValueError:
+                print("⚠️ Please enter a valid number.")
 
-    def withdraw_amount(self, user, amount):
-        if amount % 5 != 0:
-            return ("Please enter the amount in multiples of 5.", self.withdraw_amount(user, amount))
-        if user['account_balance'] < amount:
-            return "Insufficient funds."
-        user['account_balance'] -= amount
-        return f"You have successfully withdrawn ${amount}."
+    def withdraw_amount(self, user):
+        while True:
+            try:
+                amount = int(input("Enter amount to withdraw (multiples of 5) or 0 to Exit:\n> "))
+                if amount == 0:
+                    return "Transaction cancelled."
+                if amount % 5 != 0:
+                    print("❌ Please enter the amount in multiples of 5.")
+                    continue
+                if user['account_balance'] < amount:
+                    return "Insufficient funds."
+                user['account_balance'] -= amount
+                return f"✅ You have successfully withdrawn ${amount}."
+            except ValueError:
+                print("⚠️ Please enter a valid number.")
 
-    def deposit_amount(self, user, amount):
-        user['account_balance'] += amount
-        return f"You have successfully deposited ${amount}."
+    def deposit_amount(self, user):
+        while True:
+            try:
+                amount = float(input("Enter amount to deposit or 0 to Exit:\n> "))
+                if amount == 0:
+                    return "Transaction cancelled."
+                user['account_balance'] += amount
+                return f"✅ You have successfully deposited ${amount}."
+            except ValueError:
+                print("⚠️ Please enter a valid number.")
 
     def check_balance(self, user):
-        return f"Your current balance is: ${user['account_balance']:.2f}"
+        return f"💰 Your current balance is: ${user['account_balance']:.2f}"
 
 
 atm = ATM_System()
@@ -63,24 +86,25 @@ if authenticated_user:
     while True:
         user_query = input(
             "\nChoose an option:\n"
-            "1. Check Balance\n2. Fast Cash Withdraw\n3. Withdraw Amount\n4. Deposit Amount\n5. Exit\n> "
+            "1. Check Balance\n"
+            "2. Fast Cash Withdraw\n"
+            "3. Withdraw Amount\n"
+            "4. Deposit Amount\n"
+            "5. Exit\n> "
         )
 
         if user_query == '1':
             print(atm.check_balance(authenticated_user))
         elif user_query == '2':
-            amount = int(input("Choose a Fast Cash option: 20, 50, 100, 200, 500\n> "))
-            atm.fast_cash_withdraw(authenticated_user, amount)
+            print(atm.fast_cash_withdraw(authenticated_user))
         elif user_query == '3':
-            amount = int(input("Enter amount to withdraw (multiples of 5): "))
-            atm.withdraw_amount(authenticated_user, amount)
+            print(atm.withdraw_amount(authenticated_user))
         elif user_query == '4':
-            amount = int(input("Enter amount to deposit: "))
-            atm.deposit_amount(authenticated_user, amount)
+            print(atm.deposit_amount(authenticated_user))
         elif user_query == '5':
-            print("Thank you for using our ATM!")
+            print("👋 Thank you for using our ATM!")
             break
         else:
-            print("Invalid option, please try again.")
+            print("❌ Invalid option, please try again.")
 else:
     print("Authentication failed.")
