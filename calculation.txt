@@ -1,0 +1,3 @@
+This is a new file created for calculations.
+It will store the results of various calculations.
+Appending a new line to the existing file.

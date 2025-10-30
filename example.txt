@@ -1,0 +1,2 @@
+This is a new file created in exclusive creation mode.
+It will raise an error if the file already exists.
